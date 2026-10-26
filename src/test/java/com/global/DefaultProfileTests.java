@@ -16,8 +16,9 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 // 프로필을 지정하지 않음 = default 프로필. 실제 OpenAI 호출은 하지 않고 빈 구성만 확인한다.
+// 초기 데이터 생성(BaseInitData)은 임베딩을 위해 OpenAI를 호출하므로 끈다.
 @Import(TestcontainersConfiguration.class)
-@SpringBootTest(properties = "OPENAI_API_KEY=sk-test-dummy")
+@SpringBootTest(properties = {"OPENAI_API_KEY=sk-test-dummy", "app.init-data.enabled=false"})
 class DefaultProfileTests {
     @Autowired
     private ApplicationContext context;

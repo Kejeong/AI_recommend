@@ -3,6 +3,7 @@ package com.back.global.init;
 import com.back.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -17,6 +18,7 @@ public class BaseInitData {
 
     @Bean
     @Profile("!test") // 테스트에서는 각 테스트가 필요한 데이터를 직접 만든다
+    @ConditionalOnProperty(name = "app.init-data.enabled", havingValue = "true", matchIfMissing = true)
     public ApplicationRunner initDataRunner() {
         return args -> {
             if (!productService.findAll().isEmpty()) {
