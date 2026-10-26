@@ -10,6 +10,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/${DATABASE_NAME:vectordb}
     username: ${DATABASE_USERNAME:vector}
     password: ${DATABASE_PASSWORD:vector123}
+    datasource:
+      url: jdbc:postgresql://localhost:5432/${DATABASE_NAME:vectordb}
+      username: ${DATABASE_USERNAME:vector}
+      password: ${DATABASE_PASSWORD:vector123}
   ai:
     openai:
       api-key: ${OPENAI_API_KEY:sk-dummy} # 키가 없어도 기동은 되게 기본값을 둔다 (실제 호출 시 401)

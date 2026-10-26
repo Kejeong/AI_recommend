@@ -4,6 +4,9 @@ import co.elastic.clients.elasticsearch._types.KnnSearch;
 import com.back.product.document.ProductDocument;
 import com.back.product.entity.Product;
 import com.back.product.entity.ProductKeyword;
+
+import com.back.product.document.ProductDocument;
+import com.back.product.entity.Product;
 import com.back.product.repository.ProductDocumentRepository;
 import com.back.product.repository.ProductRepository;
 import org.springframework.ai.embedding.EmbeddingModel;
@@ -18,6 +21,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 @Service
